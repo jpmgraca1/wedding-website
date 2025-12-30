@@ -1,0 +1,21 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/_framework/*", "/css/*", "/pics/*", "*.{png,jpg,jpeg,gif,ico,svg,webp,JPG,JPEG,PNG,GIF}"]
+  },
+  "mimeTypes": {
+    ".dll": "application/octet-stream",
+    ".json": "application/json",
+    ".wasm": "application/wasm",
+    ".woff": "font/woff",
+    ".woff2": "font/woff2"
+  },
+  "globalHeaders": {
+    "cache-control": "no-cache, no-store, must-revalidate"
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html"
+    }
+  }
+}
