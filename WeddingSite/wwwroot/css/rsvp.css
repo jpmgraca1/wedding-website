@@ -1,0 +1,396 @@
+/* RSVP Page Styles */
+.rsvp-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.photo-section-rsvp {
+    margin: 2rem 0 3rem 0;
+    text-align: center;
+}
+
+.rsvp-photo {
+    max-width: 600px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.rsvp-form-section {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.rsvp-form {
+    margin-top: 2rem;
+}
+
+.guest-section {
+    background: linear-gradient(135deg, var(--sand-light) 0%, rgba(184, 212, 232, 0.3) 100%);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--sea);
+}
+
+.guest-section.main-guest {
+    border-left-color: var(--sea-dark);
+}
+
+.guest-section.additional-guest {
+    border-left-color: var(--sand-dark);
+}
+
+.guest-section h3 {
+    color: var(--sea-deep);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.field-hint {
+    font-size: 0.9rem;
+    color: var(--sea-dark);
+    font-style: italic;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--sand-dark);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--sea);
+    box-shadow: 0 0 0 3px rgba(138, 180, 213, 0.2);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--sea-dark);
+}
+
+.additional-guests-section {
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.additional-guests-section h3 {
+    color: var(--sea-deep);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.guest-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.counter-btn {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--sea-dark);
+    background: var(--white);
+    color: var(--sea-dark);
+    font-size: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+}
+
+.counter-btn:hover:not(:disabled) {
+    background: var(--sea-dark);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.counter-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.counter-value {
+    font-size: 3rem;
+    color: var(--sea-deep);
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.success-message {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--sand-light) 0%, var(--sea-light) 100%);
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.success-message h2 {
+    color: var(--sea-deep);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.success-message p {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+.validation-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.error-message {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
+    border-radius: 12px;
+    border: 2px solid #dc3545;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.error-message h2 {
+    color: #dc3545;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.error-message p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+/* Calendar Section */
+.calendar-section {
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--sand-light) 0%, var(--sea-light) 100%);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.calendar-section h2 {
+    color: var(--sea-deep);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-section p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+.calendar-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.btn-calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+    background: var(--white);
+    border: 2px solid var(--sea-dark);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-calendar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--sea);
+}
+
+.btn-calendar.google {
+    border-color: #4285F4;
+}
+
+.btn-calendar.google:hover {
+    background: #4285F4;
+    color: var(--white);
+}
+
+.btn-calendar.apple {
+    border-color: #000000;
+}
+
+.btn-calendar.apple:hover {
+    background: #000000;
+    color: var(--white);
+}
+
+.btn-calendar.outlook {
+    border-color: #0078D4;
+}
+
+.btn-calendar.outlook:hover {
+    background: #0078D4;
+    color: var(--white);
+}
+
+.btn-calendar.other {
+    border-color: var(--sand-dark);
+}
+
+.btn-calendar.other:hover {
+    background: var(--sand-dark);
+    color: var(--white);
+}
+
+.calendar-icon {
+    font-size: 2.5rem;
+}
+
+.btn-calendar span:last-child {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dark);
+}
+
+.btn-calendar:hover span:last-child {
+    color: var(--white);
+}
+
+/* RSVP Mobile Responsive */
+@media (max-width: 768px) {
+    .rsvp-form-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .guest-section {
+        padding: 1.5rem;
+    }
+
+    .guest-counter {
+        gap: 1.5rem;
+    }
+
+    .counter-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.8rem;
+    }
+
+    .counter-value {
+        font-size: 2.5rem;
+        min-width: 60px;
+    }
+
+    .rsvp-photo {
+        max-width: 100%;
+    }
+
+    .additional-guests-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .success-message h2 {
+        font-size: 2rem;
+    }
+
+    .success-message p {
+        font-size: 1.1rem;
+    }
+
+    .calendar-section {
+        padding: 2rem 1rem;
+        margin-top: 3rem;
+    }
+
+    .calendar-section h2 {
+        font-size: 2rem;
+    }
+
+    .calendar-section p {
+        font-size: 1rem;
+    }
+
+    .calendar-buttons {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .btn-calendar {
+        padding: 1.25rem 1rem;
+    }
+
+    .calendar-icon {
+        font-size: 2rem;
+    }
+}

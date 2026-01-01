@@ -1,0 +1,320 @@
+﻿@page "/rsvp"
+@inject HttpClient Http
+@using System.ComponentModel.DataAnnotations
+
+<PageTitle>RSVP - Margarida & João</PageTitle>
+
+<div class="rsvp-container">
+    <div class="info-header">
+        <h1>Confirme a Sua Presença</h1>
+        <p class="subtitle">Será uma honra tê-los connosco</p>
+        <div class="decorative-line"></div>
+    </div>
+
+    @if (isSubmitted)
+    {
+        <div class="success-message">
+            <h2>✓ Confirmação Recebida!</h2>
+            <p>Obrigado por confirmar a vossa presença. Mal podemos esperar para celebrar convosco!</p>
+            <a href="/" class="btn-wedding">← Voltar ao Início</a>
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="error-message">
+            <h2>✗ Erro ao Enviar</h2>
+            <p>@errorMessage</p>
+            <p>Por favor, tente novamente ou contacte-nos diretamente.</p>
+            <button type="button" class="btn-wedding" @onclick="ResetForm">Tentar Novamente</button>
+        </div>
+    }
+    else
+    {
+        <div class="rsvp-form-section">
+            <div class="photo-section-rsvp">
+                <img src="pics/JP&M (199).JPG" alt="Margarida e João" class="rsvp-photo" />
+            </div>
+
+            <EditForm Model="@mainGuest" OnValidSubmit="@HandleSubmit" class="rsvp-form">
+                <DataAnnotationsValidator />
+                
+                <div class="guest-section main-guest">
+                    <h3>Os Seus Dados</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Primeiro Nome *</label>
+                            <InputText id="firstName" @bind-Value="mainGuest.FirstName" class="form-control" />
+                            <ValidationMessage For="@(() => mainGuest.FirstName)" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Sobrenome *</label>
+                            <InputText id="lastName" @bind-Value="mainGuest.LastName" class="form-control" />
+                            <ValidationMessage For="@(() => mainGuest.LastName)" />
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <InputCheckbox @bind-Value="mainGuest.HasDietaryRestrictions" />
+                            <span>Tenho restrições alimentares</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="additional-guests-section">
+                    <h3>Quem vai consigo?</h3>
+                    <div class="guest-counter">
+                        <button type="button" class="counter-btn" @onclick="DecrementGuests" disabled="@(additionalGuestsCount == 0)">−</button>
+                        <span class="counter-value">@additionalGuestsCount</span>
+                        <button type="button" class="counter-btn" @onclick="IncrementGuests">+</button>
+                    </div>
+                </div>
+
+                @for (int i = 0; i < additionalGuestsCount; i++)
+                {
+                    int index = i;
+                    <div class="guest-section additional-guest">
+                        <h3>Acompanhante @(index + 1)</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Primeiro Nome *</label>
+                                <InputText @bind-Value="additionalGuests[index].FirstName" class="form-control" />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Sobrenome *</label>
+                                <InputText @bind-Value="additionalGuests[index].LastName" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <InputCheckbox @bind-Value="additionalGuests[index].HasDietaryRestrictions" />
+                                <span>Tem restrições alimentares</span>
+                            </label>
+                        </div>
+                    </div>
+                }
+
+                <div class="form-group">
+                    <label for="comments">Comentários ou perguntas</label>
+                    <p class="field-hint">(se tiverem crianças indiquem a idade e necessidade de cadeira de refeição)</p>
+                    <InputTextArea id="comments" @bind-Value="comments" class="form-control" rows="4" />
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-wedding" disabled="@isSubmitting">
+                        @if (isSubmitting)
+                        {
+                            <span>A enviar...</span>
+                        }
+                        else
+                        {
+                            <span>Submeter</span>
+                        }
+                    </button>
+                </div>
+            </EditForm>
+        </div>
+    }
+
+    <!-- Adicionar ao Calendário - Sempre visível -->
+    <div class="calendar-section">
+        <h2>📅 Guardem a Data</h2>
+        <p>Adicionem o nosso casamento ao vosso calendário!</p>
+        
+        <div class="calendar-buttons">
+            <a href="@googleCalendarUrl" target="_blank" class="btn-calendar google">
+                <span class="calendar-icon">📅</span>
+                <span>Google Calendar</span>
+            </a>
+            
+            <a href="@appleCalendarUrl" download="casamento-margarida-joao.ics" class="btn-calendar apple">
+                <span class="calendar-icon">🍎</span>
+                <span>Apple Calendar</span>
+            </a>
+            
+            <a href="@outlookCalendarUrl" target="_blank" class="btn-calendar outlook">
+                <span class="calendar-icon">📧</span>
+                <span>Outlook</span>
+            </a>
+            
+            <a href="@appleCalendarUrl" download="casamento-margarida-joao.ics" class="btn-calendar other">
+                <span class="calendar-icon">📆</span>
+                <span>Outro (ICS)</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+@code {
+    private Guest mainGuest = new Guest();
+    private List<Guest> additionalGuests = new List<Guest>();
+    private int additionalGuestsCount = 0;
+    private string comments = "";
+    private bool isSubmitting = false;
+    private bool isSubmitted = false;
+    private string errorMessage = "";
+
+    // Dados do evento
+    private string eventTitle = "Casamento Margarida & João";
+    private string eventDescription = "Celebrem connosco o nosso dia especial!\n\nCerimónia: Igreja de Nossa Senhora dos Prazeres (14:00)\nReceção: Quinta Nova do Hespanhol (16:00)";
+    private string eventLocation = "Igreja de Nossa Senhora dos Prazeres, Aldeia Galega da Merceana";
+    private DateTime eventStart = new DateTime(2026, 9, 12, 14, 0, 0);
+    private DateTime eventEnd = new DateTime(2026, 9, 13, 2, 0, 0);
+
+    // URLs dos calendários
+    private string googleCalendarUrl => GenerateGoogleCalendarUrl();
+    private string outlookCalendarUrl => GenerateOutlookCalendarUrl();
+    private string appleCalendarUrl => GenerateICalendarUrl();
+
+    private class Guest
+    {
+        [Required(ErrorMessage = "Primeiro nome é obrigatório")]
+        public string FirstName { get; set; } = "";
+        
+        [Required(ErrorMessage = "Sobrenome é obrigatório")]
+        public string LastName { get; set; } = "";
+        
+        public bool HasDietaryRestrictions { get; set; } = false;
+    }
+
+    private void IncrementGuests()
+    {
+        if (additionalGuestsCount < 10)
+        {
+            additionalGuestsCount++;
+            additionalGuests.Add(new Guest());
+        }
+    }
+
+    private void DecrementGuests()
+    {
+        if (additionalGuestsCount > 0)
+        {
+            additionalGuestsCount--;
+            additionalGuests.RemoveAt(additionalGuests.Count - 1);
+        }
+    }
+
+    private void ResetForm()
+    {
+        errorMessage = "";
+        isSubmitted = false;
+    }
+
+    private async Task HandleSubmit()
+    {
+        isSubmitting = true;
+        errorMessage = "";
+
+        try
+        {
+            var allGuests = new List<Guest> { mainGuest };
+            allGuests.AddRange(additionalGuests);
+
+            // Preparar dados em formato de form (não JSON) para evitar CORS
+            var formData = new Dictionary<string, string>();
+            
+            // Adicionar timestamp
+            formData.Add("timestamp", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+            formData.Add("comments", comments ?? "");
+            
+            // Adicionar cada convidado
+            for (int i = 0; i < allGuests.Count; i++)
+            {
+                var guest = allGuests[i];
+                formData.Add($"guest{i}_firstName", guest.FirstName);
+                formData.Add($"guest{i}_lastName", guest.LastName);
+                formData.Add($"guest{i}_dietary", guest.HasDietaryRestrictions ? "Sim" : "Não");
+            }
+            
+            formData.Add("guestCount", allGuests.Count.ToString());
+
+            // SUBSTITUA ESTE URL pelo URL do seu Google Apps Script
+            var googleScriptUrl = "https://script.google.com/macros/s/AKfycbw_RdkeI5A1czOVqWvCyJPkdBU0Tr_AnwP17SjRrvAB5vTeMa5jAGBypyLKzuPOf3zI/exec";
+            
+            // Usar FormUrlEncodedContent ao invés de JSON para evitar preflight CORS
+            var content = new FormUrlEncodedContent(formData);
+            
+            var response = await Http.PostAsync(googleScriptUrl, content);
+            
+            if (response.IsSuccessStatusCode)
+            {
+                isSubmitted = true;
+            }
+            else
+            {
+                errorMessage = $"Erro ao conectar com o servidor. Código: {response.StatusCode}";
+                Console.WriteLine($"Response: {await response.Content.ReadAsStringAsync()}");
+            }
+        }
+        catch (HttpRequestException ex)
+        {
+            errorMessage = "Erro de conexão. Verifique sua internet e tente novamente.";
+            Console.WriteLine($"Erro HTTP: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Ocorreu um erro inesperado. Por favor, tente novamente.";
+            Console.WriteLine($"Erro: {ex.Message}");
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
+    }
+
+    private string GenerateGoogleCalendarUrl()
+    {
+        var title = Uri.EscapeDataString(eventTitle);
+        var details = Uri.EscapeDataString(eventDescription);
+        var location = Uri.EscapeDataString(eventLocation);
+        var startDate = eventStart.ToString("yyyyMMddTHHmmss");
+        var endDate = eventEnd.ToString("yyyyMMddTHHmmss");
+        
+        return $"https://calendar.google.com/calendar/render?action=TEMPLATE&text={title}&dates={startDate}/{endDate}&details={details}&location={location}";
+    }
+
+    private string GenerateOutlookCalendarUrl()
+    {
+        var title = Uri.EscapeDataString(eventTitle);
+        var body = Uri.EscapeDataString(eventDescription);
+        var location = Uri.EscapeDataString(eventLocation);
+        var startDate = eventStart.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ");
+        var endDate = eventEnd.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ");
+        
+        return $"https://outlook.live.com/calendar/0/deeplink/compose?subject={title}&body={body}&location={location}&startdt={startDate}&enddt={endDate}";
+    }
+
+    private string GenerateICalendarUrl()
+    {
+        var descriptionText = eventDescription.Replace("\n", "\\n");
+        var icsContent = @"BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Casamento Margarida & João//PT
+BEGIN:VEVENT
+UID:" + Guid.NewGuid() + @"@casamento-margarida-joao.com
+DTSTAMP:" + DateTime.UtcNow.ToString("yyyyMMddTHHmmssZ") + @"
+DTSTART:" + eventStart.ToString("yyyyMMddTHHmmss") + @"
+DTEND:" + eventEnd.ToString("yyyyMMddTHHmmss") + @"
+SUMMARY:" + eventTitle + @"
+DESCRIPTION:" + descriptionText + @"
+LOCATION:" + eventLocation + @"
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Lembrete: Casamento Margarida & João amanhã!
+END:VALARM
+END:VEVENT
+END:VCALENDAR";
+
+        var encoded = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(icsContent));
+        return $"data:text/calendar;base64,{encoded}";
+    }
+}
