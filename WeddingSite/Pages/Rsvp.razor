@@ -128,26 +128,24 @@
         
         <div class="calendar-buttons">
             <a href="@googleCalendarUrl" target="_blank" class="btn-calendar google">
-                <span class="calendar-icon">📅</span>
+                <img src="pic-google-calendar/Google_Calendar_icon_(2020).svg.png" alt="Google Calendar" class="calendar-icon-img" />
                 <span>Google Calendar</span>
             </a>
             
             <a href="@appleCalendarUrl" download="casamento-margarida-joao.ics" class="btn-calendar apple">
-                <span class="calendar-icon">🍎</span>
+                <img src="pic-apple-calendar/purepng.com-apple-logologobrand-logoiconslogos-251519938788qhgdl.png" alt="Apple Calendar" class="calendar-icon-img" />
                 <span>Apple Calendar</span>
-            </a>
-            
-            <a href="@outlookCalendarUrl" target="_blank" class="btn-calendar outlook">
-                <span class="calendar-icon">📧</span>
-                <span>Outlook</span>
-            </a>
-            
-            <a href="@appleCalendarUrl" download="casamento-margarida-joao.ics" class="btn-calendar other">
-                <span class="calendar-icon">📆</span>
-                <span>Outro (ICS)</span>
             </a>
         </div>
     </div>
+
+    @if (!isSubmitted && string.IsNullOrEmpty(errorMessage))
+    {
+        <!-- Botão Voltar ao Início - Apenas visível quando o formulário está ativo -->
+        <div class="back-home">
+            <a href="/" class="btn-wedding-outline">← Voltar ao Início</a>
+        </div>
+    }
 </div>
 
 @code {

@@ -244,9 +244,9 @@
 
 .calendar-buttons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    max-width: 900px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -254,8 +254,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1.5rem 1rem;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
     background: var(--white);
     border: 2px solid var(--sea-dark);
     border-radius: 12px;
@@ -288,37 +288,21 @@
     color: var(--white);
 }
 
-.btn-calendar.outlook {
-    border-color: #0078D4;
+.calendar-icon-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
 
-.btn-calendar.outlook:hover {
-    background: #0078D4;
-    color: var(--white);
-}
-
-.btn-calendar.other {
-    border-color: var(--sand-dark);
-}
-
-.btn-calendar.other:hover {
-    background: var(--sand-dark);
-    color: var(--white);
-}
-
-.calendar-icon {
-    font-size: 2.5rem;
-}
-
-.btn-calendar span:last-child {
-    font-size: 1rem;
+.btn-calendar span {
+    font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-dark);
 }
 
-.btn-calendar:hover span:last-child {
+.btn-calendar:hover span {
     color: var(--white);
 }
 
@@ -383,14 +367,15 @@
 
     .calendar-buttons {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .btn-calendar {
-        padding: 1.25rem 1rem;
+        padding: 1.5rem 1rem;
     }
 
-    .calendar-icon {
-        font-size: 2rem;
+    .calendar-icon-img {
+        width: 60px;
+        height: 60px;
     }
 }
