@@ -1,0 +1,98 @@
+﻿@page "/honeymoon"
+
+<PageTitle>Lua de Mel - Margarida & João</PageTitle>
+
+<div class="honeymoon-container">
+    <div class="info-header">
+        <h1>Lua de Mel</h1>
+        <p class="subtitle">A Nossa Próxima Aventura</p>
+        <div class="decorative-line"></div>
+    </div>
+
+    <div class="honeymoon-content">
+        <div class="message-section">
+            <p class="main-message">
+                A maior prenda que nos podem dar é, sem dúvida, a vossa presença neste dia tão especial &#x1F90D;
+            </p>
+            
+            <p>
+                Ter-vos connosco para celebrar a nossa união é tudo o que realmente desejamos.
+            </p>
+            
+            <p>
+                Ainda assim, se quiserem oferecer-nos algo mais, ficaremos muito gratos por uma contribuição para a nossa lua de mel. 
+                Adoramos viajar e somos verdadeiramente felizes a colecionar experiências e memórias pelo mundo.
+            </p>
+            
+            <p>
+                Na nossa lua de mel sonhamos explorar novos horizontes: o lado mais citadino, vibrante e dinâmico do <strong>Japão</strong>, 
+                e a beleza exótica e tranquila da <strong>Indonésia</strong>.
+            </p>
+        </div>
+
+        <!-- Galeria Simples de Memórias -->
+        <div class="memories-section">
+            <h2>&#x1F30D; As Nossas Aventuras</h2>
+            <p class="memories-subtitle">Momentos que já colecionámos pelo mundo</p>
+            
+            <div class="photo-gallery-honeymoon">
+                <div class="photo-row-honeymoon">
+                    <div class="photo-card-honeymoon">
+                        <img src="pics-honeymoon/20240328_172427.jpg" alt="Aventura" />
+                    </div>
+                    <div class="photo-card-honeymoon">
+                        <img src="pics-honeymoon/20231204_122242.jpg" alt="Aventura" />
+                    </div>
+                    <div class="photo-card-honeymoon">
+                        <img src="pics-honeymoon/20240321_110959.jpg" alt="Aventura" />
+                    </div>
+                </div>
+                <div class="photo-row-honeymoon">
+                    <div class="photo-card-honeymoon">
+                        <img src="pics-honeymoon/20231207_110430.jpg" alt="Aventura" />
+                    </div>
+                    <div class="photo-card-honeymoon">
+                        <img src="pics-honeymoon/20221011_185135(0).jpg" alt="Aventura" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="iban-section">
+            <h2>Contribuição</h2>
+            <p>Se quiserem ajudar-nos a tornar esta aventura ainda mais especial, podem fazê-lo através do IBAN abaixo:</p>
+            
+            <div class="iban-box">
+                <p class="iban-label">IBAN</p>
+                <p class="iban-number">PT50&nbsp;0045&nbsp;9060&nbsp;4036&nbsp;2414&nbsp;0784&nbsp;5</p>
+                <button class="copy-btn" onclick="copyIban()">&#x1F4CB; Copiar IBAN</button>
+            </div>
+        </div>
+
+        <div class="thank-you-section">
+            <p class="thank-you-message">
+                Obrigado, do fundo do coração, por fazerem parte da nossa história &#x1F4AB;
+            </p>
+        </div>
+    </div>
+
+    <div class="back-home">
+        <a href="/" class="btn-wedding-outline">&#x2190; Voltar ao Início</a>
+    </div>
+</div>
+
+<script>
+    function copyIban() {
+        const iban = "PT50004590604036241407845";
+        navigator.clipboard.writeText(iban).then(() => {
+            const btn = document.querySelector('.copy-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '✓ Copiado!';
+            btn.style.background = '#26b050';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+            }, 2000);
+        });
+    }
+</script>

@@ -1,0 +1,256 @@
+/* Honeymoon Page Styles */
+.honeymoon-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.honeymoon-content {
+    margin-top: 3rem;
+}
+
+.message-section {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.message-section p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.main-message {
+    font-size: 1.4rem !important;
+    font-weight: 500;
+    color: var(--sea-deep);
+    margin-bottom: 2rem !important;
+}
+
+.message-section strong {
+    color: var(--sea-dark);
+    font-weight: 600;
+}
+
+/* Photo Gallery - Same style as landing page */
+.memories-section {
+    margin: 4rem 0;
+    padding: 3rem 2rem;
+    background: var(--white);
+    border-radius: 12px;
+}
+
+.memories-section h2 {
+    text-align: center;
+    color: var(--sea-deep);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.memories-subtitle {
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 3rem;
+}
+
+.photo-gallery-honeymoon {
+    padding: 2rem 0;
+}
+
+.photo-row-honeymoon {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.photo-card-honeymoon {
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card-honeymoon.wide {
+    flex: 2;
+    max-width: 600px;
+}
+
+.photo-card-honeymoon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.photo-card-honeymoon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.iban-section {
+    background: linear-gradient(135deg, var(--sea-light) 0%, var(--sand-light) 100%);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.iban-section h2 {
+    color: var(--sea-deep);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.iban-section > p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.iban-box {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.iban-label {
+    font-size: 0.9rem;
+    color: var(--sea-dark);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.iban-number {
+    font-size: 1.4rem;
+    color: var(--sea-deep);
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    padding: 0 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.copy-btn {
+    background: var(--sea-dark);
+    color: var(--white);
+    border: 2px solid var(--sea-dark);
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.copy-btn:hover {
+    background: var(--sea-deep);
+    border-color: var(--sea-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.thank-you-section {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.thank-you-message {
+    font-size: 1.4rem;
+    color: var(--sea-deep);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+/* Honeymoon Mobile Responsive */
+@media (max-width: 768px) {
+    .honeymoon-container {
+        padding: 2rem 1rem;
+    }
+
+    .message-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .message-section p {
+        font-size: 1.1rem;
+    }
+
+    .main-message {
+        font-size: 1.2rem !important;
+    }
+
+    .memories-section {
+        padding: 2rem 1rem;
+    }
+
+    .memories-section h2 {
+        font-size: 2rem;
+    }
+
+    .memories-subtitle {
+        font-size: 1rem;
+    }
+
+    .photo-row-honeymoon {
+        flex-direction: column;
+    }
+
+    .photo-card-honeymoon,
+    .photo-card-honeymoon.wide {
+        max-width: 100%;
+    }
+
+    .iban-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .iban-section h2 {
+        font-size: 2rem;
+    }
+
+    .iban-box {
+        padding: 2rem 2rem;
+    }
+
+    .iban-number {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        word-break: break-all;
+        padding: 0 0.5rem;
+    }
+
+    .thank-you-section {
+        padding: 2rem 1rem;
+    }
+
+    .thank-you-message {
+        font-size: 1.2rem;
+    }
+}
