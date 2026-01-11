@@ -5,7 +5,7 @@
 
 .top-row {
     min-height: 3.5rem;
-    background-color: rgba(212, 186, 150, 0.3);
+    background-color: rgba(212, 186, 150, 0.95);
 }
 
 .navbar-brand {
@@ -13,6 +13,11 @@
     color: #3D6B8F !important;
     font-weight: 400;
     letter-spacing: 2px;
+}
+
+/* Menu dropdown em mobile */
+.nav-scrollable {
+    background: linear-gradient(180deg, #E8D4B8 0%, #D4BA96 100%);
 }
 
 .bi {
