@@ -3,10 +3,10 @@
     --sand-light: #F5E6D3;
     --sand: #E8D4B8;
     --sand-dark: #D4BA96;
-    --sea-light: #B8D4E8;
-    --sea: #8AB4D5;
-    --sea-dark: #5A8DB8;
-    --sea-deep: #3D6B8F;
+    --sea-light: #B4C1B4;
+    --sea: #8B9B8B;
+    --sea-dark: #6B7B6B;
+    --sea-deep: #4A5A4A;
     --white: #FFFFFF;
     --text-dark: #4A4A4A;
     --text-light: #FFFFFF;
@@ -55,13 +55,21 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, rgba(245, 230, 211, 0.9) 0%, rgba(184, 212, 232, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(245, 230, 211, 0.9) 0%, rgba(180, 193, 180, 0.9) 100%);
     text-align: center;
     position: relative;
 }
 
 .hero-content {
     animation: fadeIn 1.5s ease-in;
+}
+
+.flower-bar {
+    max-width: 500px;
+    width: 90%;
+    height: auto;
+    margin-bottom: 2rem;
+    opacity: 0.9;
 }
 
 .couple-names {
@@ -277,6 +285,79 @@ a:hover {
 
 .btn-calendar-home:hover span {
     color: var(--white);
+}
+
+/* Explore More Section */
+.explore-more-section {
+    padding: 6rem 2rem 4rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--sand-light) 0%, var(--sea-light) 100%);
+}
+
+.explore-more-section h2 {
+    color: var(--sea-deep);
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+}
+
+.explore-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+.explore-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem auto;
+}
+
+.explore-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.explore-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.explore-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.explore-card h3 {
+    font-size: 1.5rem;
+    color: var(--sea-dark);
+    margin: 0.5rem 0;
+    font-weight: 500;
+}
+
+.explore-card p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin: 0.5rem 0 0 0;
+    line-height: 1.5;
+}
+
+.flower-bar-bottom {
+    max-width: 500px;
+    width: 90%;
+    height: auto;
+    margin-top: 2rem;
+    opacity: 0.9;
 }
 
 /* Information Page Styles */
@@ -498,7 +579,7 @@ a:hover {
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(61, 107, 143, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(74, 90, 74, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 .nav-link {
@@ -625,6 +706,15 @@ code {
         max-width: 100%;
     }
 
+    .flower-bar {
+        max-width: 350px;
+        margin-bottom: 1.5rem;
+    }
+
+    .flower-bar-bottom {
+        max-width: 350px;
+    }
+
     .couple-names {
         font-size: 2.5rem;
         letter-spacing: 2px;
@@ -701,6 +791,30 @@ code {
         width: 60px;
         height: 60px;
     }
+
+    .explore-more-section {
+        padding: 4rem 1rem 3rem 1rem;
+    }
+
+    .explore-more-section h2 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+
+    .explore-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .explore-links {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .explore-card {
+        padding: 2rem 1.5rem;
+    }
     
     .venue-section {
         flex-direction: column;
@@ -740,6 +854,15 @@ code {
 
 /* Extra small devices (iPhone SE, older phones) */
 @media (max-width: 390px) {
+    .flower-bar {
+        max-width: 250px;
+        margin-bottom: 1rem;
+    }
+
+    .flower-bar-bottom {
+        max-width: 250px;
+    }
+
     .couple-names {
         font-size: 2rem;
         letter-spacing: 1px;
