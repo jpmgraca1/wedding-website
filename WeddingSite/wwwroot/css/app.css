@@ -142,7 +142,7 @@ a:hover {
 
 /* Photo Gallery */
 .photo-gallery {
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 2rem 2rem;
     background: var(--white);
 }
 
@@ -204,30 +204,30 @@ a:hover {
 
 /* Calendar Section on Home Page */
 .calendar-section-home {
-    padding: 6rem 2rem;
+    padding: 3rem 2rem 4rem 2rem;
     text-align: center;
     background: var(--white);
 }
 
 .calendar-section-home h2 {
     color: var(--sea-deep);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
     letter-spacing: 2px;
 }
 
 .calendar-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-dark);
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     font-style: italic;
 }
 
 .calendar-buttons-home {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 600px;
+    gap: 1.5rem;
+    max-width: 500px;
     margin: 0 auto;
 }
 
@@ -235,8 +235,8 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 2rem 1.5rem;
+    gap: 0.75rem;
+    padding: 1.5rem 1.25rem;
     background: var(--white);
     border: 2px solid var(--sea-dark);
     border-radius: 12px;
@@ -270,13 +270,13 @@ a:hover {
 }
 
 .calendar-icon-img-home {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
 }
 
 .btn-calendar-home span {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -764,32 +764,37 @@ code {
     }
     
     .calendar-section-home {
-        padding: 4rem 1rem;
+        padding: 2rem 1rem 3rem 1rem;
     }
 
     .calendar-section-home h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         padding: 0 1rem;
     }
 
     .calendar-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
         padding: 0 1rem;
     }
 
     .calendar-buttons-home {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.25rem;
         padding: 0 1rem;
+        max-width: 350px;
     }
 
     .btn-calendar-home {
-        padding: 1.5rem 1rem;
+        padding: 1.25rem 1rem;
     }
 
     .calendar-icon-img-home {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .btn-calendar-home span {
+        font-size: 0.9rem;
     }
 
     .explore-more-section {
@@ -881,6 +886,11 @@ code {
         padding: 0 1rem;
     }
 
+    .calendar-icon-img-home {
+        width: 45px;
+        height: 45px;
+    }
+
     /* Move scroll indicator even higher on very small screens */
     .scroll-indicator {
         bottom: 100px;
@@ -890,4 +900,4 @@ code {
 .back-home {
     text-align: center;
     margin-top: 4rem;
-}
+}}
