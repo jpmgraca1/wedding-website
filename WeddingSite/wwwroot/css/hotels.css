@@ -5,6 +5,143 @@
     padding: 4rem 2rem;
 }
 
+/* Drivers Section */
+.drivers-section {
+    background: linear-gradient(135deg, rgba(245, 230, 211, 0.5) 0%, rgba(180, 193, 180, 0.5) 100%);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    margin: 3rem 0 4rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.drivers-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.driver-image-container {
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 0 auto 1.5rem auto;
+}
+
+.drivers-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.drivers-section:hover .drivers-image {
+    transform: scale(1.05);
+}
+
+.drivers-header h2 {
+    color: var(--sea-deep);
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.drivers-content {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.drivers-intro {
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.drivers-content h3 {
+    color: var(--sea-dark);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.services-list, .info-list {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.services-list li, .info-list li {
+    margin-bottom: 0.5rem;
+}
+
+.drivers-contact {
+    background: linear-gradient(135deg, var(--sand-light) 0%, var(--sea-light) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.contact-name {
+    font-size: 1.3rem;
+    color: var(--sea-deep);
+    margin-bottom: 1.5rem;
+}
+
+.contact-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-value {
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    word-break: break-all;
+}
+
+.copy-btn-driver {
+    background: var(--sea-dark);
+    color: var(--white);
+    border: 2px solid var(--sea-dark);
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.copy-btn-driver:hover {
+    background: var(--sea-deep);
+    border-color: var(--sea-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .hotels-intro {
     text-align: center;
     max-width: 800px;
@@ -160,6 +297,64 @@
 @media (max-width: 768px) {
     .hotels-container {
         padding: 2rem 1rem;
+    }
+
+    .drivers-section {
+        padding: 2rem 1rem;
+        margin: 2rem 0 3rem 0;
+    }
+
+    .driver-image-container {
+        max-width: 100%;
+        height: 300px;
+    }
+
+    .drivers-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .drivers-content {
+        padding: 1.5rem;
+    }
+
+    .drivers-intro {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .drivers-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .services-list, .info-list {
+        font-size: 1rem;
+        margin-left: 1rem;
+    }
+
+    .drivers-contact {
+        padding: 1.5rem 1rem;
+    }
+
+    .contact-name {
+        font-size: 1.1rem;
+    }
+
+    .contact-buttons {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .contact-item {
+        padding: 1rem;
+    }
+
+    .contact-value {
+        font-size: 0.9rem;
+    }
+
+    .copy-btn-driver {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
     }
 
     .hotels-intro {

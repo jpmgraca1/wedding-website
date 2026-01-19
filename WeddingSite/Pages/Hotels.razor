@@ -1,4 +1,5 @@
 @page "/hotels"
+@* UTF-8 Encoding - Caracteres especiais portugueses *@
 
 <PageTitle>Onde Ficar - Margarida &amp; João</PageTitle>
 
@@ -7,6 +8,58 @@
         <h1>Onde Ficar</h1>
         <p class="subtitle">Sugestões de alojamento para o nosso grande dia</p>
         <div class="decorative-line"></div>
+    </div>
+
+    <!-- Secção Drivers -->
+    <div class="drivers-section">
+        <div class="drivers-header">
+            <div class="driver-image-container">
+                <img src="pic-drivers/driver2.png" alt="Your car, my driver" class="drivers-image" />
+            </div>
+            <h2>Your car, my driver</h2>
+        </div>
+        
+        <div class="drivers-content">
+            <p class="drivers-intro">
+                O serviço Your Car, My driver permite que cada pessoa ou grupo de pessoas se possa deslocar para um casamento com o seu próprio veículo sem a preocupação de no final, depois de um dia cansativo e de alguns excessos, ter de voltar para casa a conduzir, ou mesmo usufruir de um serviço completo de drivers.
+            </p>
+
+            <h3>Quais os serviços disponíveis?</h3>
+            <ol class="services-list">
+                <li>Ir levar e buscar em carro do serviço</li>
+                <li>Ir buscar em carro do serviço</li>
+                <li>Driver para trazer o carro dos convidados</li>
+            </ol>
+
+            <h3>Como funciona?</h3>
+            <p>
+                Cada carro terá um driver atribuído, que a uma hora a combinar estará no local do casamento pronto para levar o vosso próprio carro ao destino por vós indicado previamente, deixando o carro na morada final por vós indicada.
+            </p>
+
+            <div class="drivers-contact">
+                <h3>Para agendamento contactar:</h3>
+                <p class="contact-name"><strong>Manuel Maio</strong></p>
+                
+                <div class="contact-buttons">
+                    <div class="contact-item">
+                        <span class="contact-value">911 110 911</span>
+                        <button class="copy-btn-driver" onclick="copyPhone()">&#x1F4CB; Copiar</button>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-value">yourcar.mydriver@gmail.com</span>
+                        <button class="copy-btn-driver" onclick="copyEmail()">&#x1F4CB; Copiar</button>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Informação a disponibilizar:</h3>
+            <ul class="info-list">
+                <li>Morada de Pickup (no caso de boleia ir e voltar)</li>
+                <li>Morada de drop off (para qualquer opção)</li>
+                <li>Hora prevista de saída do casamento (tolerância de 30/40 min após o driver chegar ao local)</li>
+                <li>Número de carros</li>
+            </ul>
+        </div>
     </div>
 
     <div class="hotels-intro">
@@ -89,7 +142,41 @@
         <p>&#x1F4A1; <strong>Dica:</strong> Recomendamos reservar o mais cedo possível, especialmente para o fim de semana do casamento!</p>
     </div>
 
+    <div class="photo-section">
+        <img src="pics/JP&amp;M (175).JPG" alt="Margarida e João" class="info-photo" />
+    </div>
+
     <div class="back-home">
         <a href="/" class="btn-wedding-outline">&#x2190; Voltar ao Início</a>
     </div>
 </div>
+
+<script>
+    function copyPhone() {
+        const phone = "911110911";
+        navigator.clipboard.writeText(phone).then(() => {
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '&#x2713; Copiado!';
+            btn.style.background = '#26b050';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+            }, 2000);
+        });
+    }
+
+    function copyEmail() {
+        const email = "yourcar.mydriver@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '&#x2713; Copiado!';
+            btn.style.background = '#26b050';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+            }, 2000);
+        });
+    }
+</script>
