@@ -6,8 +6,8 @@
 
 <div class="rsvp-container">
     <div class="info-header">
-        <h1>Confirme a Sua Presença</h1>
-        <p class="subtitle">Será uma honra tê-los connosco</p>
+        <h1>Confirmem a Vossa Presença</h1>
+        <p class="subtitle">Vamos celebrar juntos!</p>
         <div class="decorative-line"></div>
     </div>
 
@@ -15,7 +15,7 @@
     {
         <div class="success-message">
             <h2>✓ Confirmação Recebida!</h2>
-            <p>Obrigado por confirmar a vossa presença. Mal podemos esperar para celebrar convosco!</p>
+            <p>Obrigado por confirmarem a vossa presença. Mal podemos esperar para celebrar convosco!</p>
             <a href="/" class="btn-wedding">← Voltar ao Início</a>
         </div>
     }
@@ -24,7 +24,7 @@
         <div class="error-message">
             <h2>✗ Erro ao Enviar</h2>
             <p>@errorMessage</p>
-            <p>Por favor, tente novamente ou contacte-nos diretamente.</p>
+            <p>Por favor, tenta novamente ou contacta-nos diretamente.</p>
             <button type="button" class="btn-wedding" @onclick="ResetForm">Tentar Novamente</button>
         </div>
     }
@@ -39,7 +39,7 @@
                 <DataAnnotationsValidator />
                 
                 <div class="guest-section main-guest">
-                    <h3>Os Seus Dados</h3>
+                    <h3>Dados</h3>
                     
                     <div class="form-row">
                         <div class="form-group">
@@ -65,14 +65,14 @@
                     @if (mainGuest.HasDietaryRestrictions)
                     {
                         <div class="form-group">
-                            <label for="mainDietaryDetails">Especifique as restrições alimentares *</label>
+                            <label for="mainDietaryDetails">Especifica as restrições alimentares *</label>
                             <InputTextArea id="mainDietaryDetails" @bind-Value="mainGuest.DietaryDetails" class="form-control" rows="2" placeholder="Ex: vegetariano, alergia a frutos secos, etc." />
                         </div>
                     }
                 </div>
 
                 <div class="additional-guests-section">
-                    <h3>Quem vai consigo?</h3>
+                    <h3>Quem vai contigo?</h3>
                     <div class="guest-counter">
                         <button type="button" class="counter-btn" @onclick="DecrementGuests" disabled="@(additionalGuestsCount == 0)">−</button>
                         <span class="counter-value">@additionalGuestsCount</span>
@@ -108,7 +108,7 @@
                         @if (additionalGuests[index].HasDietaryRestrictions)
                         {
                             <div class="form-group">
-                                <label>Especifique as restrições alimentares *</label>
+                                <label>Especifica as restrições alimentares *</label>
                                 <InputTextArea @bind-Value="additionalGuests[index].DietaryDetails" class="form-control" rows="2" placeholder="Ex: vegetariano, alergia a frutos secos, etc." />
                             </div>
                         }
